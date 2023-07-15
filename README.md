@@ -1,0 +1,1 @@
+First Odin project: odin-recipe.
