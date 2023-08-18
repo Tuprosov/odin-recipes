@@ -1,29 +1,25 @@
-function mergeSort(arr) {
-    if (arr.length < 2) {
-        return arr
-    };
+const container = document.querySelector('.container');
 
-    const mid = Math.floor(arr.length / 2)
-    const leftArr = arr.slice(0, mid);
-    const rightArr = arr.slice(mid);
+const text = document.createElement('p');
+const heading = document.createElement('h3');
+text.textContent = 'Hey Im Red';
+heading.textContent = 'Im blue h3';
+text.style.color = 'red';
+heading.style.color = 'blue';
 
-    return merge(mergeSort(leftArr), mergeSort(rightArr));
-    
-};
 
-function merge(leftArr, rightArr) {
-    const sortedArr = []
-    while(leftArr.length && rightArr.length) {
-        if (leftArr[0] <= rightArr[0]){
-            sortedArr.push(leftArr.shift())
-        } else {
-            sortedArr.push(rightArr.shift())
-        }
-    };
+container.appendChild(text);
+container.insertBefore(heading, text);
 
-    const finalArr = [...sortedArr, ...leftArr, ...rightArr]
-    return finalArr
-}
+const div = document.createElement('div');
+div.style.cssText = 'border: 1px solid black; background-color: pink';
 
-const arr = [-2, 1, 0, -5, 84, 3];
-console.log(mergeSort(arr));
+const h1 = document.createElement('h1')
+const paragraph = document.createElement('p');
+h1.textContent = 'I am in a div';
+paragraph.textContent = 'ME TOO'
+
+div.appendChild(h1);
+div.appendChild(paragraph);
+
+container.appendChild(div);

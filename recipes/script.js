@@ -44,6 +44,22 @@ console.log('-----------------');
 /------------------------------/ 
 
 
+
+function getFactorial(n) {
+    if (n === 1) {
+        return 1
+    }
+    return getFactorial(n-1) * n;
+}
+
+console.log(getFactorial(5));
+
+
+/------------------------------/ 
+console.log('-----------------');
+/------------------------------/ 
+
+
 function linearSearch(t, arr) {
     
     return arr.indexOf(t);
@@ -186,3 +202,61 @@ function towerofHanoi(n, fromRod, toRod, usingRod) {
   }
   
   towerofHanoi(4, 'A', 'C', 'B');
+
+
+/------------------------------/ 
+console.log('-----------------');
+/------------------------------/ 
+
+const palindromes = function (str) {
+    const cleanedText = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+    const reversedText = cleanedText.split('').reverse().join('');
+
+    if (reversedText === cleanedText) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+const str = 'Rats live on no evil star.';
+console.log(palindromes(str));
+
+
+/------------------------------/ 
+console.log('-----------------');
+/------------------------------/ 
+
+const people = [
+    {
+      name: "Carly",
+      yearOfBirth: 1942,
+      yearOfDeath: 1970,
+    },
+    {
+      name: "Ray",
+      yearOfBirth: 1962,
+      yearOfDeath: 2011,
+    },
+    {
+      name: "Jane",
+      yearOfBirth: 1912,
+      yearOfDeath: 1941,
+    },
+  ];
+  
+  function findOldestPerson(people) {
+    const oldestPerson = people.reduce((oldest, current) => {
+      const currentYear = new Date().getFullYear();
+      const ageOldest = oldest.yearOfDeath ? oldest.yearOfDeath - oldest.yearOfBirth : currentYear - oldest.yearOfBirth;
+      const ageCurrent = current.yearOfDeath ? current.yearOfDeath - current.yearOfBirth : currentYear - current.yearOfBirth;
+  
+      return ageCurrent > ageOldest ? current : oldest;
+    });
+  
+    return oldestPerson;
+  }
+  
+  const oldestPerson = findOldestPerson(people);
+  console.log(oldestPerson); // Output: { name: "Jane", yearOfBirth: 1912, yearOfDeath: 1941 }
+  
